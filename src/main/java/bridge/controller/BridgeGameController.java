@@ -14,7 +14,8 @@ public class BridgeGameController {
     private final OutputView outputView;
     private final BridgeGame bridgeGame;
     private final BridgeMaker bridgeMaker;
-    private boolean gameFlag = true;
+    private String gameFlag = "실패";
+    private boolean gameRetryFlag = false;
     private int gameCount = 1;
 
     public BridgeGameController() {
@@ -43,16 +44,19 @@ public class BridgeGameController {
 
     public void gameProgress(int inputSize) {
         List<String> bridges = bridgeMaker.makeBridge(inputSize);
-        System.out.println(bridges);
-        while (gameFlag) {
+        while (bridges.size() > bridgeGame.getMoveIndex()) {
             Message.GAME_PROGRESS_MOVE_POSITION_MESSAGE.infoMessage();
             String inputUpDown = bridgeUpDownChecker();
-            // 실제 게임 진행
-            if(bridgeGame.compare(bridges, inputUpDown)) {
-                int a = bridgeGame.move();
+            if(!bridgeGame.compare(bridges, inputUpDown)) {
+                outputView.printMap(bridgeGame.getMoveIndex(), inputUpDown, bridges);
+                gameRetry(inputSize);
                 continue;
             }
-            gameRetry();
+            outputView.printMap(bridgeGame.getMoveIndex(), inputUpDown, bridges);
+            bridgeGame.move();
+        }
+        if(!gameRetryFlag) {
+            gameFlag = "성공";
         }
     }
 
@@ -68,14 +72,18 @@ public class BridgeGameController {
         return inputUpDown;
     }
 
-    public void gameRetry() {
+    public void gameRetry(int inputSize) {
         Message.GAME_RETRY_MESSAGE.infoMessage();
         String retryInput = retryInputChecker();
         if(bridgeGame.retry(retryInput)) {
             gameCount++;
+            OutputView.stringBuilderUp = new StringBuilder();
+            OutputView.stringBuilderDown = new StringBuilder();
+            bridgeGame.setMoveIndex(0);
             return;
         }
-        gameFlag = false;
+        bridgeGame.setMoveIndex(inputSize);
+        gameRetryFlag = true;
     }
 
     public String retryInputChecker() {
@@ -91,7 +99,8 @@ public class BridgeGameController {
     }
 
     public void gameResult() {
-
+        Message.GAME_RESULT_HEADER_MESSAGE.infoMessage();
+        outputView.printResult(gameFlag, gameCount);
     }
 
     public boolean validNumber(String input) {
