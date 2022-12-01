@@ -1,15 +1,15 @@
 ### 기능 목록
 
-- [ ] view 패키지
+- [x] view 패키지
   - [x] InputView 클래스
     - [x] 다리의 길이를 입력받는 기능
     - [x] 플레이어가 이동할 칸을 입력받는 기능
     - [x] 게임을 다시 시도할지 여부를 입력받는 기능
-  - [ ] outputView 클래스
+  - [x] outputView 클래스
     - [x] 게임 시작 문구와 다리 길이 입력 문구를 출력하는 기능
-    - [ ] 플레이어가 이동한 칸을 출력하는 기능
+    - [x] 플레이어가 이동한 칸을 출력하는 기능
     - [x] 게임 다시 시작 문구를 출력하는 기능
-    - [ ] 게임 결과 문구를 출력하는 기능
+    - [x] 게임 결과 문구를 출력하는 기능
     - [x] enum을 내부 클래스로 선언하여 게임 안내 문구 처리
 - [x] model 패키지
   - [x] BridgeGame 클래스
@@ -20,8 +20,8 @@
     - [x] 다리를 생성하는 기능
     - [x] 생성한 다리를 U, D로 이루어진 문자로 변경하는 기능
   - [x] BridgeRandomNumberGenerator : BridgeNumberGenerator 구현체
-- [ ] controller 패키지
-  - [ ] BridgeGameController
+- [x] controller 패키지
+  - [x] BridgeGameController
     - [x] 게임을 시작하고 다리 길이를 입력받아 생성까지 담당하는 기능
     - [x] 게임을 진행하는 기능
     - [x] 게임 재시작을 진행하는 기능
