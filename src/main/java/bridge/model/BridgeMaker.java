@@ -28,7 +28,7 @@ public class BridgeMaker {
     }
 
     public String convertBridge(int bridgeNumber) {
-        if(bridgeNumber == 0) {
+        if (bridgeNumber == 0) {
             return "D";
         }
         return "U";

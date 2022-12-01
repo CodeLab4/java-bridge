@@ -6,7 +6,6 @@ import bridge.model.BridgeRandomNumberGenerator;
 import bridge.view.InputView;
 import bridge.view.OutputView;
 import bridge.view.OutputView.Message;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BridgeGameController {
@@ -35,7 +34,7 @@ public class BridgeGameController {
         boolean sizeFlag = true;
         while (sizeFlag) {
             inputSize = inputView.readBridgeSize();
-            if(!(validNumber(inputSize)||validNumberRange(inputSize))) {
+            if (!(validNumber(inputSize) || validNumberRange(inputSize))) {
                 sizeFlag = false;
             }
         }
@@ -47,7 +46,7 @@ public class BridgeGameController {
         while (bridges.size() > bridgeGame.getMoveIndex()) {
             Message.GAME_PROGRESS_MOVE_POSITION_MESSAGE.infoMessage();
             String inputUpDown = bridgeUpDownChecker();
-            if(!bridgeGame.compare(bridges, inputUpDown)) {
+            if (!bridgeGame.compare(bridges, inputUpDown)) {
                 outputView.printMap(bridgeGame.getMoveIndex(), inputUpDown, bridges);
                 gameRetry(inputSize);
                 continue;
@@ -55,7 +54,7 @@ public class BridgeGameController {
             outputView.printMap(bridgeGame.getMoveIndex(), inputUpDown, bridges);
             bridgeGame.move();
         }
-        if(!gameRetryFlag) {
+        if (!gameRetryFlag) {
             gameFlag = "성공";
         }
     }
@@ -65,7 +64,7 @@ public class BridgeGameController {
         boolean upDownFlag = true;
         while (upDownFlag) {
             inputUpDown = inputView.readMoving();
-            if(!validUpDown(inputUpDown)) {
+            if (!validUpDown(inputUpDown)) {
                 upDownFlag = false;
             }
         }
@@ -75,7 +74,7 @@ public class BridgeGameController {
     public void gameRetry(int inputSize) {
         Message.GAME_RETRY_MESSAGE.infoMessage();
         String retryInput = retryInputChecker();
-        if(bridgeGame.retry(retryInput)) {
+        if (bridgeGame.retry(retryInput)) {
             gameCount++;
             OutputView.stringBuilderUp = new StringBuilder();
             OutputView.stringBuilderDown = new StringBuilder();
@@ -91,7 +90,7 @@ public class BridgeGameController {
         boolean upDownFlag = true;
         while (upDownFlag) {
             inputUpRetry = inputView.readGameCommand();
-            if(!validRetry(inputUpRetry)) {
+            if (!validRetry(inputUpRetry)) {
                 upDownFlag = false;
             }
         }
@@ -106,7 +105,7 @@ public class BridgeGameController {
     public boolean validNumber(String input) {
         String compareString = input.replaceAll("[0-9]", "");
         try {
-            if(compareString.length() != 0) {
+            if (compareString.length() != 0) {
                 throw new IllegalArgumentException(Message.ERROR_INPUT_NUMBER_MESSAGE.errorMessage());
             }
         } catch (IllegalArgumentException illegalArgumentException) {
@@ -117,7 +116,7 @@ public class BridgeGameController {
 
     public boolean validNumberRange(String input) {
         try {
-            if(Integer.parseInt(input) < 3 || Integer.parseInt(input) > 20) {
+            if (Integer.parseInt(input) < 3 || Integer.parseInt(input) > 20) {
                 throw new IllegalArgumentException(Message.ERROR_INPUT_RANGE_MESSAGE.errorMessage());
             }
         } catch (IllegalArgumentException illegalArgumentException) {
@@ -128,7 +127,7 @@ public class BridgeGameController {
 
     public boolean validUpDown(String input) {
         try {
-            if(!(input.equals("U") || input.equals("D"))) {
+            if (!(input.equals("U") || input.equals("D"))) {
                 throw new IllegalArgumentException(Message.ERROR_INPUT_UP_DOWN_MESSAGE.errorMessage());
             }
         } catch (IllegalArgumentException illegalArgumentException) {
@@ -139,7 +138,7 @@ public class BridgeGameController {
 
     public boolean validRetry(String input) {
         try {
-            if(!(input.equals("R") || input.equals("Q"))) {
+            if (!(input.equals("R") || input.equals("Q"))) {
                 throw new IllegalArgumentException(Message.ERROR_INPUT_RETRY_MESSAGE.errorMessage());
             }
         } catch (IllegalArgumentException illegalArgumentException) {

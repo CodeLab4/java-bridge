@@ -37,6 +37,7 @@ public class OutputView {
         }
 
     }
+
     public void printMap(int moveIndex, String inputUpDown, List<String> bridges) {
         checkFirst(moveIndex);
         checkUp(moveIndex, inputUpDown, bridges);
