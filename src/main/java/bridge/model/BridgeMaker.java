@@ -22,8 +22,15 @@ public class BridgeMaker {
         List<String> bridges = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             int bridgeNumber = bridgeNumberGenerator.generate();
-            bridges.add(String.valueOf(bridgeNumber));
+            bridges.add(convertBridge(bridgeNumber));
         }
         return bridges;
+    }
+
+    public String convertBridge(int bridgeNumber) {
+        if(bridgeNumber == 0) {
+            return "D";
+        }
+        return "U";
     }
 }

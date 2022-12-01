@@ -43,6 +43,7 @@ public class BridgeGameController {
     public void gameProgress(int inputSize) {
         List<String> bridges = new ArrayList<>();
         bridges = bridgeMaker.makeBridge(inputSize);
+        System.out.println(bridges);
     }
 
     public void gameRetry() {

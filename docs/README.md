@@ -15,9 +15,9 @@
   - [ ] BridgeGame 클래스
     - [ ] 플레이어가 칸을 이동하는 기능
     - [ ] 게임을 재시작하는 기능
-  - [ ] BridgeMaker 클래스
+  - [x] BridgeMaker 클래스
     - [x] 다리를 생성하는 기능
-    - [ ] 생성한 다리를 U, D로 이루어진 문자로 변경하는 기능
+    - [x] 생성한 다리를 U, D로 이루어진 문자로 변경하는 기능
   - [ ] BridgeRandomNumberGenerator : BridgeNumberGenerator 구현체
 - [ ] controller 패키지
   - [ ] BridgeGameController
