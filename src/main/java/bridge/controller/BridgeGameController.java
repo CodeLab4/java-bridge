@@ -30,20 +30,30 @@ public class BridgeGameController {
 
     public void bridgeSizeChecker() {
         String inputSize = "";
-        boolean flag = true;
-        while (flag) {
+        boolean sizeFlag = true;
+        while (sizeFlag) {
             inputSize = inputView.readBridgeSize();
             if(!(validNumber(inputSize)||validNumberRange(inputSize))) {
-                flag = false;
+                sizeFlag = false;
             }
         }
         gameProgress(Integer.parseInt(inputSize));
     }
 
     public void gameProgress(int inputSize) {
-        List<String> bridges = new ArrayList<>();
-        bridges = bridgeMaker.makeBridge(inputSize);
-        System.out.println(bridges);
+        List<String> bridges = bridgeMaker.makeBridge(inputSize);
+        Message.GAME_PROGRESS_MOVE_POSITION_MESSAGE.infoMessage();
+        bridgeUpDownChecker();
+    }
+
+    public void bridgeUpDownChecker() {
+        boolean upDownFlag = true;
+        while (upDownFlag) {
+            String inputUpDown = inputView.readMoving();
+            if(!validUpDown(inputUpDown)) {
+                upDownFlag = false;
+            }
+        }
     }
 
     public void gameRetry() {

@@ -18,7 +18,7 @@
   - [x] BridgeMaker 클래스
     - [x] 다리를 생성하는 기능
     - [x] 생성한 다리를 U, D로 이루어진 문자로 변경하는 기능
-  - [ ] BridgeRandomNumberGenerator : BridgeNumberGenerator 구현체
+  - [x] BridgeRandomNumberGenerator : BridgeNumberGenerator 구현체
 - [ ] controller 패키지
   - [ ] BridgeGameController
     - [ ] 게임을 시작하고 다리 길이를 입력받아 생성까지 담당하는 기능
