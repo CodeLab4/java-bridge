@@ -1,5 +1,6 @@
 package bridge.view;
 
+import bridge.validator.Validator;
 import camp.nextstep.edu.missionutils.Console;
 
 /**
@@ -7,12 +8,18 @@ import camp.nextstep.edu.missionutils.Console;
  */
 public class InputView {
 
+    Validator validator = new Validator();
+
     /**
      * 다리의 길이를 입력받는다.
      */
     public int readBridgeSize() {
-        String inputBridgeSize = Console.readLine();
-        int bridgeSize = Integer.parseInt(inputBridgeSize);
+        int bridgeSize = 0;
+        while(!(bridgeSize>=3 && bridgeSize <= 20)) {
+            String inputBridgeSize = Console.readLine();
+            bridgeSize = Integer.parseInt(inputBridgeSize);
+            validator.validateBridgeSize(bridgeSize);
+        }
         return bridgeSize;
     }
 

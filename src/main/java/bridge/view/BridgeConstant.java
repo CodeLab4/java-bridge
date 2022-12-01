@@ -19,7 +19,9 @@ public enum BridgeConstant {
     BridgeStick("|"),
     BridgeSpace("   "),
     BridgeSuccess(" O "),
-    BridgeFail(" X ");
+    BridgeFail(" X "),
+    Error("ERROR"),
+    BridgeSizeError("다리 길이는 3부터 20 사이의 숫자입니다.");
 
     private final String value;
 

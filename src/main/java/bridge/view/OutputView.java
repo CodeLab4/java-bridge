@@ -5,6 +5,13 @@ package bridge.view;
  */
 public class OutputView {
 
+    public void printStartGame() {
+        System.out.println(BridgeConstant.StartBridgeGame.getValue());
+    }
+
+    public void printPutBridgeSize() {
+        System.out.println(BridgeConstant.InputBridgeSize.getValue());
+    }
     /**
      * 현재까지 이동한 다리의 상태를 정해진 형식에 맞춰 출력한다.
      * <p>
