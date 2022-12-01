@@ -5,12 +5,18 @@ package bridge.view;
  */
 public class OutputView {
 
+    // 게임을 시작합니다 출력
     public void printStartGame() {
         System.out.println(BridgeConstant.StartBridgeGame.getValue());
     }
 
+    // 다리길이를 입력하세요 출력
     public void printPutBridgeSize() {
         System.out.println(BridgeConstant.InputBridgeSize.getValue());
+    }
+
+    public void printSelectUpDown() {
+        System.out.println(BridgeConstant.SelectBridgeStep.getValue());
     }
     /**
      * 현재까지 이동한 다리의 상태를 정해진 형식에 맞춰 출력한다.

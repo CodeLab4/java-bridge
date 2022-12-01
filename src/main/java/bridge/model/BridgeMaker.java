@@ -27,6 +27,7 @@ public class BridgeMaker {
         return randomBridge;
     }
 
+    // 랜덤 다리 생성
     public List<String> makeStringBridge(List<String> randomBridge) {
         int randomNum = bridgeNumberGenerator.generate();
         if (randomNum == 0) {

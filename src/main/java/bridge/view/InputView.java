@@ -15,7 +15,7 @@ public class InputView {
      */
     public int readBridgeSize() {
         int bridgeSize = 0;
-        while(!(bridgeSize>=3 && bridgeSize <= 20)) {
+        while (!(bridgeSize >= 3 && bridgeSize <= 20)) {
             String inputBridgeSize = Console.readLine();
             bridgeSize = Integer.parseInt(inputBridgeSize);
             validator.validateBridgeSize(bridgeSize);
@@ -27,9 +27,12 @@ public class InputView {
      * 사용자가 이동할 칸을 입력받는다.
      */
     public String readMoving() {
-        String move = null;
-        move = Console.readLine();
-
+        String move = Console.readLine();
+        while (!move.equals(BridgeConstant.CapitalU.getValue()) &&
+                !move.equals(BridgeConstant.CapitalD.getValue())) {
+            validator.validateUpDown(move);
+            move = Console.readLine();
+        }
         return move;
     }
 

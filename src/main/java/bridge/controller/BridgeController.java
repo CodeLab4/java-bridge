@@ -2,6 +2,7 @@ package bridge.controller;
 
 import bridge.model.BridgeGame;
 import bridge.model.BridgeMaker;
+import bridge.model.BridgeRandomNumberGenerator;
 import bridge.model.CompareBridge;
 import bridge.validator.Validator;
 import bridge.view.InputView;
@@ -17,6 +18,8 @@ public class BridgeController {
     BridgeMaker bridgeMaker;
     CompareBridge compareBridge;
     Validator validator;
+
+
 
     public BridgeController(InputView inputView, OutputView outputView,BridgeGame bridgeGame, BridgeMaker bridgeMaker, CompareBridge compareBridge, Validator validator) {
         this.inputView = inputView;
@@ -42,15 +45,15 @@ public class BridgeController {
         // 생성된 브릿지 출력, 나중에 삭제할 것
         System.out.println(randomBridge);
 
+        while(true){
+            outputView.printSelectUpDown();
+            String moveInput = inputView.readMoving();
+//             여기서 입력받고
+//             비교하고
+//             비교한 값 출력하고
+//             게임을 종료한다면 end = false;
 
-//        while(true;){
-
-            // 여기서 입력받고
-            // 비교하고
-            // 비교한 값 출력하고
-            // 게임을 종료한다면 end = false;
-
-//        }
+        }
 
 
     }
