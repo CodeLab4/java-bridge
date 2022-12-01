@@ -14,7 +14,7 @@ public class BridgeGameController {
     private final OutputView outputView;
     private final BridgeGame bridgeGame;
     private final BridgeMaker bridgeMaker;
-    private boolean gameFlag = false;
+    private boolean gameFlag = true;
     private int gameCount = 1;
 
     public BridgeGameController() {
@@ -43,26 +43,54 @@ public class BridgeGameController {
 
     public void gameProgress(int inputSize) {
         List<String> bridges = bridgeMaker.makeBridge(inputSize);
-
-        // 입력 시작
-        Message.GAME_PROGRESS_MOVE_POSITION_MESSAGE.infoMessage();
-        bridgeUpDownChecker();
-
-        // 실제 게임 진행
-        bridgeGame.move();
+        System.out.println(bridges);
+        while (gameFlag) {
+            Message.GAME_PROGRESS_MOVE_POSITION_MESSAGE.infoMessage();
+            String inputUpDown = bridgeUpDownChecker();
+            // 실제 게임 진행
+            if(bridgeGame.compare(bridges, inputUpDown)) {
+                int a = bridgeGame.move();
+                continue;
+            }
+            gameRetry();
+        }
     }
 
-    public void bridgeUpDownChecker() {
+    public String bridgeUpDownChecker() {
+        String inputUpDown = "";
         boolean upDownFlag = true;
         while (upDownFlag) {
-            String inputUpDown = inputView.readMoving();
+            inputUpDown = inputView.readMoving();
             if(!validUpDown(inputUpDown)) {
                 upDownFlag = false;
             }
         }
+        return inputUpDown;
     }
 
     public void gameRetry() {
+        Message.GAME_RETRY_MESSAGE.infoMessage();
+        String retryInput = retryInputChecker();
+        if(bridgeGame.retry(retryInput)) {
+            gameCount++;
+            return;
+        }
+        gameFlag = false;
+    }
+
+    public String retryInputChecker() {
+        String inputUpRetry = "";
+        boolean upDownFlag = true;
+        while (upDownFlag) {
+            inputUpRetry = inputView.readGameCommand();
+            if(!validRetry(inputUpRetry)) {
+                upDownFlag = false;
+            }
+        }
+        return inputUpRetry;
+    }
+
+    public void gameResult() {
 
     }
 

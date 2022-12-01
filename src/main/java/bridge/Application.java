@@ -9,6 +9,6 @@ public class Application {
         bridgeGameController.gameStart();
         int size = bridgeGameController.bridgeSizeChecker();
         bridgeGameController.gameProgress(size);
-
+        bridgeGameController.gameResult();
     }
 }
