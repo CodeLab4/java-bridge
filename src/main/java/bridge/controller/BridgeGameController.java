@@ -6,6 +6,8 @@ import bridge.model.BridgeRandomNumberGenerator;
 import bridge.view.InputView;
 import bridge.view.OutputView;
 import bridge.view.OutputView.Message;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BridgeGameController {
     private final InputView inputView;
@@ -27,18 +29,20 @@ public class BridgeGameController {
     }
 
     public void bridgeSizeChecker() {
+        String inputSize = "";
         boolean flag = true;
         while (flag) {
-            String input = inputView.readBridgeSize();
-            if(!(validNumber(input)||validNumberRange(input))) {
+            inputSize = inputView.readBridgeSize();
+            if(!(validNumber(inputSize)||validNumberRange(inputSize))) {
                 flag = false;
             }
         }
-        gameProgress();
+        gameProgress(Integer.parseInt(inputSize));
     }
 
-    public void gameProgress() {
-
+    public void gameProgress(int inputSize) {
+        List<String> bridges = new ArrayList<>();
+        bridges = bridgeMaker.makeBridge(inputSize);
     }
 
     public void gameRetry() {
