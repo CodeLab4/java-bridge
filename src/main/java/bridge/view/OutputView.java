@@ -23,8 +23,8 @@ public class OutputView {
         }
 
         public String errorMessage() {
-            System.out.println("[ERROR]" + message);
-            return "[Error]" + message;
+            System.out.println("[ERROR] " + message);
+            return "[Error] " + message;
         }
 
         public void infoMessage() {

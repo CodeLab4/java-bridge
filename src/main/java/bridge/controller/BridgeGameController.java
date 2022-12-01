@@ -14,6 +14,8 @@ public class BridgeGameController {
     private final OutputView outputView;
     private final BridgeGame bridgeGame;
     private final BridgeMaker bridgeMaker;
+    private boolean gameFlag = false;
+    private int gameCount = 1;
 
     public BridgeGameController() {
         this.inputView = new InputView();
@@ -25,10 +27,9 @@ public class BridgeGameController {
     public void gameStart() {
         Message.GAME_START_MESSAGE.infoMessage();
         Message.GAME_BRIDGE_LENGTH_INPUT_MESSAGE.infoMessage();
-        bridgeSizeChecker();
     }
 
-    public void bridgeSizeChecker() {
+    public int bridgeSizeChecker() {
         String inputSize = "";
         boolean sizeFlag = true;
         while (sizeFlag) {
@@ -37,13 +38,18 @@ public class BridgeGameController {
                 sizeFlag = false;
             }
         }
-        gameProgress(Integer.parseInt(inputSize));
+        return Integer.parseInt(inputSize);
     }
 
     public void gameProgress(int inputSize) {
         List<String> bridges = bridgeMaker.makeBridge(inputSize);
+
+        // 입력 시작
         Message.GAME_PROGRESS_MOVE_POSITION_MESSAGE.infoMessage();
         bridgeUpDownChecker();
+
+        // 실제 게임 진행
+        bridgeGame.move();
     }
 
     public void bridgeUpDownChecker() {
