@@ -15,15 +15,36 @@ public class OutputView {
         System.out.println(BridgeConstant.InputBridgeSize.getValue());
     }
 
+    // 위아래 선택
     public void printSelectUpDown() {
         System.out.println(BridgeConstant.SelectBridgeStep.getValue());
+    }
+
+    // 게임 재시작 여부 입력받기
+    public void printSelectGameRestart() {
+        System.out.println(BridgeConstant.SelectGameRestart.getValue());
     }
     /**
      * 현재까지 이동한 다리의 상태를 정해진 형식에 맞춰 출력한다.
      * <p>
      * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
-    public void printMap() {
+    public void printMap(StringBuilder sbUp, StringBuilder sbDown) {
+        if(sbUp.charAt(0) == '|'){
+            sbUp.deleteCharAt(0);
+            sbDown.deleteCharAt(0);
+
+        }
+        System.out.println("[" + sbUp + "]");
+        System.out.println("[" + sbDown + "]");
+        System.out.println();
+    }
+
+
+    // 최종 게임 결과 + 결과 맵 출력
+    public void printResultMap(StringBuilder sbUp, StringBuilder sbDown) {
+        System.out.println("최종 게임 결과");
+        printMap(sbUp, sbDown);
     }
 
     /**
@@ -31,6 +52,11 @@ public class OutputView {
      * <p>
      * 출력을 위해 필요한 메서드의 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
-    public void printResult() {
+
+    // 게임 결과 출력
+    public void printResult(String result, int gameCount) {
+        System.out.println(BridgeConstant.WhetherGameSuccess.getValue() + result);
+        System.out.println(BridgeConstant.TotalGameCount.getValue() + gameCount);
     }
+
 }
