@@ -42,7 +42,6 @@ public class BridgeGame {
             if(gameCommand.equals("R")){
                 sbUp.delete(0, sbUp.length());
                 sbDown.delete(0, sbDown.length());
-                bridgeController.gameCount++;
                 break;
             }
         }

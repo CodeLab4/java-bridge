@@ -57,7 +57,7 @@ public class BridgeController {
         boolean checkString = true;
         while (checkString) {
             outputView.printPutBridgeSize();
-            strBridgeSize = Console.readLine();
+            strBridgeSize = inputView.readStrBridgeSize();
             checkString = validator.validateInteger(strBridgeSize, checkString);
         }
         bridgeSize = Integer.parseInt(strBridgeSize);
@@ -85,6 +85,9 @@ public class BridgeController {
                     gameProgress = bridgeGame.retry(gameProgress, sbUp, sbDown);
                     i = -1;
                     moveIndex = 0;
+                    if(gameProgress){
+                        gameCount++;
+                    }
                 }
 
                 if (!gameProgress) {
