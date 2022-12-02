@@ -71,7 +71,7 @@ public class OutputView {
 //        System.out.println(Arrays.toString(topTemp));
 //        System.out.println(Arrays.toString(bottomTemp));
 
-        for (int i = 0; i < BridgeGame.index; i++) {
+        for (int i = 0; i < BridgeGame.index+1; i++) {
           topJoiner.add(topTemp[i]);
           bottomJoiner.add(bottomTemp[i]);
         }
