@@ -1,8 +1,11 @@
 package bridge;
 
+import bridge.controller.Controller;
+
 public class Application {
 
     public static void main(String[] args) {
-        System.out.println(1);
+        Controller controller = new Controller();
+        controller.gameStart();
     }
 }
