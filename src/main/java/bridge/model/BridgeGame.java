@@ -23,8 +23,13 @@ public class BridgeGame {
     public int move(int moveIndex) {
         return moveIndex++;
     }
+    // move 에 다른 역할을 부여하기 보단, 현재 다리 위치를 표현해 주는 역할을 수행하는 것이 옳다고 생각
+    // 4주차 미션을 진행하면서는 index 생각을 못하고 U D 를 받아서 반환만 해주는 필요없는 메서드 역할만 수행
+    // 이번에는 하나의 행동을 담당하는 역할로 성장...?
 
 
+
+// retry 또한  R Q 를 반환해주는 역할에서 뭔가 주체적으로 행동하는 메서드로 진화...?
     public boolean retry(boolean checkGameCommand, StringBuilder sbUp, StringBuilder sbDown) {
 
         while (checkGameCommand) {

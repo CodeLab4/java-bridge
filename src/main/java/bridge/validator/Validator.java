@@ -23,16 +23,17 @@ public class Validator {
     }
 
     // 숫자만 입력
-    public void validateInteger(String input) {
+    public boolean validateInteger(String input, boolean checkString) {
 
             try {
                 if(!input.matches("-?\\d+")){
                     throw new NumberFormatException("[ERROR]"); // 이렇게 발생시키는 것 외의 방법 궁금!!!
                 }
+                return checkString = false;
             } catch (IllegalArgumentException illegalArgumentException) {
                 System.out.println(BridgeConstant.Error.getValue());
             }
-
+            return checkString;
     }
 
     // U 와 D 이외의 오류

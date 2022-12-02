@@ -13,21 +13,27 @@ public class InputView {
     /**
      * 다리의 길이를 입력받는다.
      */
-    public int readBridgeSize() {
-        int bridgeSize = 0;
-        while (!(bridgeSize >= 3 && bridgeSize <= 20)) {
-                String inputBridgeSize = Console.readLine();
-//            if(!inputBridgeSize.matches("-?\\d+")){
-//                throw new NumberFormatException("[ERROR]"); // 이렇게 발생시키는 것 외의 방법 궁금!!! catch를 해버리니깐 계속해서 a 입력되서 Error 무한출력
-//            }
-                validator.validateInteger(inputBridgeSize); // 알파벳 입력 시 에러 발생시키고 진행하기
+//    public int readBridgeSize() {
+//        int bridgeSize = 0;
+//        while (!(bridgeSize >= 3 && bridgeSize <= 20)) {
+//                String inputBridgeSize = Console.readLine();
+////            if(!inputBridgeSize.matches("-?\\d+")){
+////                throw new NumberFormatException("[ERROR]"); // 이렇게 발생시키는 것 외의 방법 궁금!!! catch를 해버리니깐 계속해서 a 입력되서 Error 무한출력
+////            }
+////                validator.validateInteger(inputBridgeSize); // 알파벳 입력 시 에러 발생시키고 진행하기
+//
+//            bridgeSize = Integer.parseInt(inputBridgeSize);
+////            validator.validateBridgeSize(bridgeSize);
+//
+//
+//        }
+//        return bridgeSize;
+//    }
 
-            bridgeSize = Integer.parseInt(inputBridgeSize);
-            validator.validateBridgeSize(bridgeSize);
 
-
-        }
-        return bridgeSize;
+    public String readStrBridgeSize() {
+        String input = Console.readLine();
+        return input;
     }
 
     /**

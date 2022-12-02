@@ -7,6 +7,7 @@ import bridge.validator.Validator;
 import bridge.view.BridgeConstant;
 import bridge.view.InputView;
 import bridge.view.OutputView;
+import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class BridgeController {
@@ -44,15 +45,24 @@ public class BridgeController {
         sbDown = new StringBuilder();
         gameCount = 1;
         String moveUpDown = null;
+        String strBridgeSize = null;
 
         int bridgeSize = 0; // 다리 길이
         List<String> randomBridge; // 랜덤한 다리 생성, makeBridge 에서 초기화 진행
 
         // 다리 길이 입력, 예외 발생 시 계속 돌아가도록
         outputView.printStartGame();
-        outputView.printPutBridgeSize();
 
-        bridgeSize = inputView.readBridgeSize();
+//        bridgeSize = inputView.readBridgeSize();
+        boolean checkString = true;
+        while (checkString) {
+            outputView.printPutBridgeSize();
+            strBridgeSize = Console.readLine();
+            checkString = validator.validateInteger(strBridgeSize, checkString);
+        }
+        bridgeSize = Integer.parseInt(strBridgeSize);
+        validator.validateBridgeSize(bridgeSize);
+
         // 예외 숫자 말고 입력 시 발생, 공백 시 발생
 
         // 브릿지 생성하고
@@ -76,7 +86,6 @@ public class BridgeController {
                     i = -1;
                     moveIndex = 0;
                 }
-
 
                 if (!gameProgress) {
                     i = randomBridge.size();
