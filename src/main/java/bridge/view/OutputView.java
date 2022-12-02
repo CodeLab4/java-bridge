@@ -15,6 +15,8 @@ import java.util.StringJoiner;
 public class OutputView {
     public static StringBuilder topBridge = new StringBuilder();
     public static StringBuilder bottomBridge = new StringBuilder();
+    public static StringJoiner topJoiner;
+    public static StringJoiner bottomJoiner;
 
     public void printStart() {
         System.out.println("다리 건너기 게임을 시작합니다.");
@@ -37,6 +39,7 @@ public class OutputView {
     // int size
     public void printMap(boolean moveSuccess, String moving) {
 
+
         if (moveSuccess) {
             if (moving.equals("U")) {
                 topBridge.append("O");
@@ -54,22 +57,11 @@ public class OutputView {
                 bottomBridge.append("X");
             }
         }
-
-
-        StringJoiner topJoiner = new StringJoiner(" | ", "[ ", " ]");
-        StringJoiner bottomJoiner = new StringJoiner(" | ", "[ ", " ]");
-
         String[] topTemp = topBridge.toString().split("");
         String[] bottomTemp = bottomBridge.toString().split("");
 
-
-//        topJoiner.add(topTemp[0]);
-//        bottomJoiner.add(bottomTemp[0]);
-//        System.out.println(topJoiner);
-//        System.out.println(bottomJoiner);
-
-//        System.out.println(Arrays.toString(topTemp));
-//        System.out.println(Arrays.toString(bottomTemp));
+        topJoiner = new StringJoiner(" | ", "[ ", " ]");
+        bottomJoiner = new StringJoiner(" | ", "[ ", " ]");
 
         for (int i = 0; i < BridgeGame.index+1; i++) {
           topJoiner.add(topTemp[i]);
@@ -78,8 +70,6 @@ public class OutputView {
 
         System.out.println(topJoiner);
         System.out.println(bottomJoiner);
-
-
     }
 
     public void printRestart() {
@@ -93,8 +83,9 @@ public class OutputView {
      */
     public void printResult(boolean moveSuccess, int gameCount) {
         System.out.println("최종 게임 결과");
-        System.out.println(topBridge);
-        System.out.println(bottomBridge);
+
+        System.out.println(topJoiner);
+        System.out.println(bottomJoiner);
 
         if (moveSuccess) {
             System.out.println("게임 성공 여부: 성공");
