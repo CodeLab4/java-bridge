@@ -1,5 +1,10 @@
 package bridge.view;
 
+import bridge.model.BridgeGame;
+
+import java.util.Arrays;
+import java.util.StringJoiner;
+
 /**
  * 사용자에게 게임 진행 상황과 결과를 출력하는 역할을 한다.
  * - 제공된 `OutputView` 클래스를 활용해 구현해야 한다.
@@ -32,7 +37,7 @@ public class OutputView {
     // int size
     public void printMap(boolean moveSuccess, String moving) {
 
-        if (moveSuccess == true) {
+        if (moveSuccess) {
             if (moving.equals("U")) {
                 topBridge.append("O");
                 bottomBridge.append(" ");
@@ -50,11 +55,32 @@ public class OutputView {
             }
         }
 
-        System.out.println(topBridge);
-        System.out.println(bottomBridge);
+
+        StringJoiner topJoiner = new StringJoiner(" | ", "[ ", " ]");
+        StringJoiner bottomJoiner = new StringJoiner(" | ", "[ ", " ]");
+
+        String[] topTemp = topBridge.toString().split("");
+        String[] bottomTemp = bottomBridge.toString().split("");
+
+
+//        topJoiner.add(topTemp[0]);
+//        bottomJoiner.add(bottomTemp[0]);
+//        System.out.println(topJoiner);
+//        System.out.println(bottomJoiner);
+
+//        System.out.println(Arrays.toString(topTemp));
+//        System.out.println(Arrays.toString(bottomTemp));
+
+        for (int i = 0; i < BridgeGame.index; i++) {
+          topJoiner.add(topTemp[i]);
+          bottomJoiner.add(bottomTemp[i]);
+        }
+
+        System.out.println(topJoiner);
+        System.out.println(bottomJoiner);
+
+
     }
-
-
 
     public void printRestart() {
         System.out.println("게임을 다시 시도할지 여부를 입력해주세요. (재시도: R, 종료: Q)");
@@ -67,14 +93,14 @@ public class OutputView {
      */
     public void printResult(boolean moveSuccess, int gameCount) {
         System.out.println("최종 게임 결과");
+        System.out.println(topBridge);
+        System.out.println(bottomBridge);
 
-
-        if (moveSuccess == true) {
+        if (moveSuccess) {
             System.out.println("게임 성공 여부: 성공");
         } else {
             System.out.println("게임 성공 여부: 실패");
         }
-
         System.out.println("총 시도한 횟수: " + gameCount);
     }
 }
