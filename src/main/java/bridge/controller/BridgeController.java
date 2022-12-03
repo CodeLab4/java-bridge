@@ -48,14 +48,23 @@ public class BridgeController {
         List<String> randomBridge; // 랜덤한 다리 생성, makeBridge 에서 초기화 진행
 
         // 다리 길이 입력, 예외 발생 시 계속 돌아가도록
+        // String 먼저 발생시키고 String 검사하는 메서드는 throw 만 하고, Integer 검사하는 메서드에서 catch 를 해서
+        // 범위 결정하는 메서드가
         outputView.printStartGame();
+        System.out.println(BridgeConstant.InputBridgeSize.getValue());
 
-        stringBridgeSize = checkString(stringBridgeSize);
+
+//        // 다리 크기 문자열인지 확인하고 정수 나올 때 까지 재입력
+//        stringBridgeSize = checkString(stringBridgeSize);
+//
+//
+//        // 3-20 사이인거 확인하는 메서드, 여기서 String 재입력 하면 NumberFormatException 발생
+//        bridgeSize = validator.validateINTEGERLENGTH(stringBridgeSize);
 
 
-        // 3-20 사이인거 확인하는 메서드
-        bridgeSize = validator.validateINTEGERLENGTH(stringBridgeSize);
-
+        // 체크용 메서드
+        String a = null;
+        bridgeSize = inputView.bridgeSize(a);
 //        while(checkLength) {
 //            bridgeSize = Integer.parseInt(strBridgeSize);
 //            checkLength = validator.validateBridgeSize(bridgeSize, checkLength);

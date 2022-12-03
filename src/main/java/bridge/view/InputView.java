@@ -62,4 +62,29 @@ public class InputView {
         String readGameCommand = Console.readLine();
         return readGameCommand;
     }
+
+
+    // 예외 처리까지 같이
+    public int bridgeSize(String input) {
+        boolean checkError = true;
+        int bridgeSize = 0;
+        while(checkError) {
+            input = Console.readLine();
+            try{
+                if(!input.matches("-?\\d+")){
+                    throw new NumberFormatException("[ERROR]");
+                }
+                bridgeSize = Integer.parseInt(input);
+                if(bridgeSize < 3 || bridgeSize > 20){
+                    throw new IllegalArgumentException("[ERROR]");
+                }
+                checkError = false;
+            }catch (IllegalArgumentException illegalArgumentException){
+                System.out.println("[ERROR] 다리길이는 3부터 20 사이의 정수입니다.");
+            }
+
+
+        }
+        return bridgeSize;
+    }
 }
