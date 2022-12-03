@@ -6,8 +6,8 @@ import java.util.List;
  * 사용자에게 게임 진행 상황과 결과를 출력하는 역할을 한다.
  */
 public class OutputView {
-    public static StringBuilder stringBuilderUp = new StringBuilder();
-    public static StringBuilder stringBuilderDown = new StringBuilder();
+    private StringBuilder stringBuilderUp = new StringBuilder();
+    private StringBuilder stringBuilderDown = new StringBuilder();
 
     public enum Message {
         GAME_START_MESSAGE("다리 건너기 게임을 시작합니다. \n"),
@@ -80,6 +80,11 @@ public class OutputView {
             stringBuilderUp.append(" ");
             stringBuilderDown.append("X");
         }
+    }
+
+    public void initialization() {
+        stringBuilderUp = new StringBuilder();
+        stringBuilderDown = new StringBuilder();
     }
 
     /**

@@ -34,7 +34,12 @@ public class BridgeGame {
         return moveIndex;
     }
 
-    public void setMoveIndex(int moveIndex) {
-        this.moveIndex = moveIndex;
+    public void initialization() {
+        moveIndex = 0;
     }
+
+    public void initialization(int size) {
+        moveIndex = size;
+    }
+
 }

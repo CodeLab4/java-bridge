@@ -40,7 +40,6 @@ public class BridgeGameController {
         }
         return Integer.parseInt(inputSize);
     }
-
     public void gameProgress(int inputSize) {
         List<String> bridges = bridgeMaker.makeBridge(inputSize);
         while (bridges.size() > bridgeGame.getMoveIndex()) {
@@ -53,9 +52,6 @@ public class BridgeGameController {
             }
             outputView.printMap(bridgeGame.getMoveIndex(), inputUpDown, bridges);
             bridgeGame.move();
-        }
-        if (!gameRetryFlag) {
-            gameFlag = "성공";
         }
     }
 
@@ -76,12 +72,11 @@ public class BridgeGameController {
         String retryInput = retryInputChecker();
         if (bridgeGame.retry(retryInput)) {
             gameCount++;
-            OutputView.stringBuilderUp = new StringBuilder();
-            OutputView.stringBuilderDown = new StringBuilder();
-            bridgeGame.setMoveIndex(0);
+            outputView.initialization();
+            bridgeGame.initialization();
             return;
         }
-        bridgeGame.setMoveIndex(inputSize);
+        bridgeGame.initialization(inputSize);
         gameRetryFlag = true;
     }
 
@@ -98,6 +93,9 @@ public class BridgeGameController {
     }
 
     public void gameResult() {
+        if (!gameRetryFlag) {
+            gameFlag = "성공";
+        }
         Message.GAME_RESULT_HEADER_MESSAGE.infoMessage();
         outputView.printResult(gameFlag, gameCount);
     }
