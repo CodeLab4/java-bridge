@@ -35,15 +35,15 @@ public class OutputView {
             sbDown.deleteCharAt(0);
 
         }
-        System.out.println("[" + sbUp + "]");
-        System.out.println("[" + sbDown + "]");
+        System.out.println(BridgeConstant.BridgeStart.getValue() + sbUp + BridgeConstant.BridgeEnd.getValue());
+        System.out.println(BridgeConstant.BridgeStart.getValue() + sbDown + BridgeConstant.BridgeEnd.getValue());
         System.out.println();
     }
 
 
     // 최종 게임 결과 + 결과 맵 출력
     public void printResultMap(StringBuilder sbUp, StringBuilder sbDown) {
-        System.out.println("최종 게임 결과");
+        System.out.println(BridgeConstant.GameResult.getValue());
         printMap(sbUp, sbDown);
     }
 

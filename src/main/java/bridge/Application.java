@@ -12,14 +12,9 @@ import bridge.view.OutputView;
 public class Application {
 
     public static void main(String[] args) {
-//        try {
-            BridgeController bridgeController = new BridgeController(new InputView(), new OutputView(),
-                    new BridgeGame(),
-                    new BridgeMaker(new BridgeRandomNumberGenerator()), new CompareBridge(), new Validator());
-            bridgeController.gameStart();
-//        } catch (IllegalArgumentException illegalArgumentException) {
-//            System.out.println("[ERROR]");
-//        }
+        BridgeController bridgeController = new BridgeController(new InputView(), new OutputView(),
+                new BridgeGame(), new BridgeMaker(new BridgeRandomNumberGenerator()), new CompareBridge(), new Validator());
+        bridgeController.gameStart();
 
     }
 }
