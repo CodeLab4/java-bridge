@@ -9,6 +9,7 @@ public class BridgeGameController {
     OutputView outputView;
     BridgeRandomNumberGenerator bridgeRandomNumberGenerator;
     int gameAttempts = 0;
+    boolean reachEnd = false;
 
     BridgeGameController(BridgeGame bridgeGame, InputView inputView, OutputView outputView) {
         this.bridgeGame = bridgeGame;
@@ -43,6 +44,7 @@ public class BridgeGameController {
         printInputBridgeLength();
         inputBridgeLength();
         createBridge();
+        System.out.println(bridgeGame.bridge);
     }
 
     public boolean checkCompleteIncomplete(StringBuilder upper, StringBuilder under) {
@@ -56,7 +58,6 @@ public class BridgeGameController {
         do {
             gameAttempts++;
             bridgeGame.createUpperUnderStringBuilder();
-            boolean reachEnd = false;
             boolean whetherRightWrong = true;
             for (int i = 0; i < bridgeGame.bridgeLength && whetherRightWrong; i++) {
                 printUserDecideWhich();
