@@ -3,7 +3,12 @@ package bridge;
 public class Application {
 
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
-
+        BridgeGame bridgeGame = new BridgeGame();
+        InputView inputView = new InputView();
+        OutputView outputView = new OutputView();
+        BridgeGameController bridgeGameController = new BridgeGameController(bridgeGame, inputView, outputView);
+        bridgeGameController.initialSetting();
+        bridgeGameController.gameStart();
+        bridgeGameController.endGame();
     }
 }
