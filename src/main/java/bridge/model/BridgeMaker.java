@@ -32,7 +32,6 @@ public class BridgeMaker {
             }
             list.add("U");
         }
-        System.out.println(list);
         return list;
     }
 }

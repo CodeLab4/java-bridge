@@ -12,11 +12,12 @@ import camp.nextstep.edu.missionutils.Console;
  */
 public class InputView {
 
+
     /**
      * 다리의 길이를 입력받는다.
      */
-    public int readBridgeSize() {
-        int size = Integer.parseInt(Console.readLine());
+    public String readBridgeSize() {
+        String size = Console.readLine();
         return size;
     }
 

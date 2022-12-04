@@ -2,7 +2,6 @@ package bridge.view;
 
 import bridge.model.BridgeGame;
 
-import java.util.Arrays;
 import java.util.StringJoiner;
 
 /**
@@ -27,7 +26,6 @@ public class OutputView {
     }
 
     public void printInputMoving() {
-        System.out.println();
         System.out.println("이동할 칸을 선택해주세요. (위: U, 아래: D)");
     }
 
@@ -64,9 +62,9 @@ public class OutputView {
         topJoiner = new StringJoiner(" | ", "[ ", " ]");
         bottomJoiner = new StringJoiner(" | ", "[ ", " ]");
 
-        for (int i = 0; i < BridgeGame.index+1; i++) {
-          topJoiner.add(topTemp[i]);
-          bottomJoiner.add(bottomTemp[i]);
+        for (int i = 0; i < BridgeGame.index; i++) {
+            topJoiner.add(topTemp[i]);
+            bottomJoiner.add(bottomTemp[i]);
         }
 
         System.out.println(topJoiner);
