@@ -3,12 +3,14 @@
 enum
 StringJoiner
 
-** 난리난 코드 **
-StringJoiner 해결
+** TO DO **
+1) 게임 재시작 로직 수정(index == size 일 때 종료되도록)
+2) 예외 처리
+3) enum 클래스 만들기
+
 
 index의 역할
-컴퓨터가 만든 다리와 사용자가 입력한 횟수
-인덱스 뜻이 뭐냐?
+컴퓨터가 만든 다리, 사용자가 입력한 횟수
 사용자가 현재 위치한 칸이라고 생각하기
 
 1. 게임 시작
@@ -20,9 +22,8 @@ index의 역할
 - [x] 다리 길이를 숫자로 입력받는다. InputView#readBridgeSize()
 - [x] 입력받은 숫자의 길이를 가진 다리를 생성한다.
     - [x] 다리는 위아래 두 칸으로 출력한다.
-    - [ ] 다리의 길이는 3부터 20 사이로 생성한다. Validate
     - [ ] 사용자가 3부터 20 사이 외 문자를 입력하면 오류 메시지를 출력한다. Validate
-      - [ ] '다리 길이 입력 안내 문구'부터 과정을 반복한다.
+- [x] '다리 길이 입력 안내 문구'부터 과정을 반복한다.
 
 2-2.칸 이동
 - [x] 이동할 칸 입력 안내 문구를 출력한다. OutputView#printInputMoving
@@ -36,8 +37,8 @@ index의 역할
 
 - [x] 현재까지 이동한 다리의 칸을 모두 출력한다. OutputView#printMap()
     - [x] 생성한 다리를 출력한다.(플레이어가 위치한 칸) OutputView#printMap()
-    - [ ] 다리의 시작과 끝은 '[', ']'로 출력한다. OutputView#printMap()
-    - [ ] 다리 사이의 구분은 ' | '로 출력한다.(앞뒤 공백 포함) OutputView#printMap()
+    - [x] 다리의 시작과 끝은 '[', ']'로 출력한다. OutputView#printMap()
+    - [x] 다리 사이의 구분은 ' | '로 출력한다.(앞뒤 공백 포함) OutputView#printMap()
 
     - [x] 입력받은 칸으로 이동했다면 'O'를 출력한다. OutputView#printMap()
     - [x] 입력받은 칸이 이동 불가한 칸이라면 'X'를 출력한다. OutputView#printMap()
@@ -52,7 +53,7 @@ index의 역할
   - [x] 게임 재시작 시 생성했던 다리 그대로 처음부터 게임을 재시작하도록 한다. BridgeGame#retry()
   - [x] Q를 입력받으면 게임을 종료하도록 한다.
   - [x] 게임 종료 문구를 출력한다.(최종 게임 결과, 게임 성공 여부, 총 시도한 횟수) OutputView#printResult()
-  - 재시작 키워드 외 문자를 입력하면 오류 메시지를 출력한다. Validate
+  - [ ]재시작 키워드 외 문자를 입력하면 오류 메시지를 출력한다. Validate
 - [x] 모든 칸 이동에 성공했다면(이동한 칸이 모두 O), 게임 종료 문구를 출력한다.(최종 게임 결과, 게임 성공 여부, 총 시도한 횟수) OutputView#printResult()
 
 #### 예외 처리
